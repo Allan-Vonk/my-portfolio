@@ -129,15 +129,6 @@
         </div>
     </main>
 
-    <script>
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.slides');
-
-        function changeSlide(n) {
-            slides[slideIndex].classList.remove('active');
-            slideIndex = (slideIndex + n + slides.length) % slides.length;
-            slides[slideIndex].classList.add('active');
-        }
-    </script>
+    <script src="../scripts/slideshow.js"></script>
 </body>
 </html>

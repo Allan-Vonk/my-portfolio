@@ -1,0 +1,652 @@
+:root {
+    --bg-color: #0d1117;
+    --text-color: #c9d1d9;
+    --accent-color: #58a6ff;
+    --secondary-bg: #161b22;
+    --border-color: #30363d;
+}
+
+body {
+    position: relative;
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, 
+                                rgba(13, 17, 23, 0.95) 0%, 
+                                rgba(13, 17, 23, 1) 100%);
+}
+
+/* Remove this if you don't want the subtle pattern overlay */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,%3Csvg width="20" height="20" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M0 0h20v20H0z" fill="%23ffffff" fill-opacity="0.03"/%3E%3C/svg%3E');
+    background-size: 20px 20px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero, .projects-page {
+    background: none;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    transition: margin-left 0.3s ease;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    transition: color 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero h1:hover {
+    color: var(--accent-color);
+}
+
+.hero .tagline {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.hero .bio {
+    max-width: 600px;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #388bfd;
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Add styles for small buttons */
+.btn-small {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.btn-small:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Add styles for large buttons */
+.btn-large {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.btn-large:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 15px 15px 0 rgba(0, 0, 0, 0.3);
+}
+
+.social-icons {
+    margin-top: 2rem;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin: 0 0.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+    transform: rotate(360deg);
+}
+
+.social-icons i {
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+}
+
+.hero h1, .hero .tagline, .hero .bio, .hero .btn, .hero .social-icons, .profile-picture {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.profile-picture { animation-delay: 0s; }
+.hero h1 { animation-delay: 0.2s; }
+.hero .tagline { animation-delay: 0.4s; }
+.hero .bio { animation-delay: 0.6s; }
+.hero .btn { animation-delay: 0.8s; }
+.hero .social-icons { animation-delay: 1s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 4rem 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .tagline {
+        font-size: 1.1rem;
+    }
+
+    .hero .bio {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero .bio {
+        max-width: 800px;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Skills and projects section styles */
+.skills, .projects {
+    width: 300px;
+    padding: 1rem;
+    background-color: var(--secondary-bg);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Section header styles */
+.skills h2, .projects h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+/* Skill category styles */
+.skill-category {
+    margin-bottom: 1rem;
+}
+
+.skill-category h3 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Skill list styles */
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style-type: none;
+    padding: 0;
+}
+
+.skill-list li {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.skill-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+/* Main container styles */
+.main-container {
+    display: flex;
+    min-height: 100vh;
+    align-items: stretch;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Refactored toggle styles */
+.skills-toggle, .projects-toggle {
+    position: fixed;
+    left: 0;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: left 0.3s ease, width 0.3s ease;
+    border-radius: 8px;
+    font-weight: bold;
+    writing-mode: horizontal-tb;
+    transform: rotate(0deg);
+    width: 100px;
+    text-align: center;
+}
+
+.skills-toggle { top: 100px; }
+.projects-toggle { top: 150px; }
+
+.skills-toggle.active, .projects-toggle.active {
+    left: 340px !important;
+    width: 120px;
+}
+
+.skills-toggle:not(.active), .projects-toggle:not(.active) {
+    width: 60px;
+}
+
+/* Sidebar styles */
+.skills, .projects {
+    position: fixed;
+    left: -400px;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: var(--secondary-bg);
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    z-index: 999;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.skills.active, .projects.active {
+    left: 0;
+}
+
+/* Hero shift styles */
+.hero {
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+}
+
+.hero.shifted {
+    margin-left: 300px;
+}
+
+/* Skill description tooltip styles */
+.skill-description {
+    position: fixed;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    max-width: 400px;
+    display: none;
+    pointer-events: none;
+    border: 2px solid var(--accent-color);
+}
+
+/* Project card styles */
+.project-card {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-header {
+    position: relative;
+    cursor: pointer;
+}
+
+.project-header img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-header h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--text-color);
+    margin: 0;
+    padding: 10px;
+}
+
+.dropdown-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--text-color);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project-details {
+    padding: 15px;
+    display: none;
+}
+
+.project-card.active .project-details {
+    display: block;
+}
+
+.project-card.active .dropdown-toggle {
+    transform: rotate(180deg);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    padding: 0.5rem 1rem;
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .skills, .projects {
+        left: -100%;
+        width: 100%;
+    }
+
+    .skills-toggle.active, .projects-toggle.active {
+        left: calc(100% - 35px) !important;
+    }
+
+    .hero.shifted {
+        margin-left: 0;
+        width: 100%; /* Full width on mobile when shifted */
+    }
+
+    .profile-picture {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero .bio {
+        max-width: 800px;
+    }
+}
+
+/* Sidebar toggle styles */
+.sidebar-toggles {
+    position: fixed;
+    left: 0;
+    top: 100px;
+    z-index: 1000;
+    transition: left 0.3s ease;
+}
+
+.sidebar-toggle {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0 8px 8px 0;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 100px;
+    text-align: center;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-toggle:hover {
+    background-color: #388bfd;
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-toggle.active {
+    width: 120px;
+    background-color: #388bfd;
+    box-shadow: inset 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-toggles.shifted {
+    left: 340px;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    left: -500px;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: var(--secondary-bg);
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    z-index: 999;
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.5);
+    padding: 20px;  /* Add padding inside the sidebar */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure the sidebar takes full height */
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+/* Hero shift styles */
+.hero {
+    transition: margin-left 0.3s ease;
+}
+
+.hero.shifted {
+    margin-left: 300px;
+}
+
+/* Existing social icon styles (from the hero section) */
+.social-icon {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--accent-color);
+}
+
+/* New styles for project links */
+.project-links {
+    padding: 0 15px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-links .social-icon {
+    margin: 0; /* Override the margin from the hero section */
+}
+
+.project-links .btn-small {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+.project-grid {
+    flex-grow: 1;
+    overflow-y: auto; /* Allow scrolling if there are many projects */
+}
+
+.see-all-projects-wrapper {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--secondary-bg); /* Use your sidebar's background color */
+}
+
+.see-all-projects-wrapper .btn-large {
+    display: inline-block;
+    width: auto; /* Override any previous width setting */
+}
+
+/* Projects Page Styles */
+.projects-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: calc(100vh - 4rem); /* Subtract padding to ensure full coverage */
+}
+
+.projects-page h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ffffff; /* Make the title stand out against the gradient */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: rgba(22, 27, 34, 0.8); /* Semi-transparent background */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h2 {
+    margin-top: 0;
+}
+
+.project-info p {
+    margin-bottom: 1rem;
+}
+
+.project-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(22, 27, 34, 0.8); /* Semi-transparent background */
+    padding: 1rem 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-color);
+}

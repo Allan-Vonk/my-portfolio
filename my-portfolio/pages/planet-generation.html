@@ -7,6 +7,77 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../styles/main.css">
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+    <style>
+        .project-page {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+        .slideshow-container {
+            position: relative;
+            margin: auto;
+        }
+        .slides {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .project-image {
+            width: 100%;
+            height: auto;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+            transform: translateY(-50%);
+        }
+        .prev {
+            left: -50px;
+            border-radius: 3px 0 0 3px;
+        }
+        .next {
+            right: -50px;
+            border-radius: 0 3px 3px 0;
+        }
+        .project-content {
+            margin: 20px;
+        }
+        ul {
+            list-style-position: inside;
+            padding: 0;
+            text-align: left;
+            display: inline-block;
+        }
+        iframe {
+            display: block;
+            margin: 20px auto;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            margin-bottom: 20px; /* Add margin below the button */
+        }
+        .project-links {
+            text-align: center; /* Center-align the content */
+        }
+        .btn-container {
+            margin-top: 10px;
+        }
+        .slides iframe {
+            width: 100%;
+            height: 450px; /* Match the height to the aspect ratio of the images */
+            border: none;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,30 +89,55 @@
 
     <main class="project-page">
         <h1>Planet Generation</h1>
-        <img src="../images/Marching_cubes_with_shader.png" alt="Planet Generation" class="project-image">
+        <div class="slideshow-container">
+            <div class="slides active">
+                <img src="../images/Marching_cubes_basic.png" alt="Basic Marching Cubes" class="project-image">
+            </div>
+            <div class="slides">
+                <img src="../images/Marching_cubes_Smoothed.png" alt="Smoothed Marching Cubes" class="project-image">
+            </div>
+            <div class="slides">
+                <img src="../images/Marching_cubes_with_caves.png" alt="Marching Cubes with Caves" class="project-image">
+            </div>
+            <div class="slides">
+                <img src="../images/Marching_cubes_with_shader.png" alt="Marching Cubes with Shader" class="project-image">
+            </div>
+            <div class="slides">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/NJJHR6jebPo" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
         <div class="project-content">
-            <p>A world generation project using the Marching Cube algorithm and quad tree for a performant, real-sized planet with high fidelity near the player.</p>
+            <p>A world generation project using the Marching Cube algorithm and octree to create a high-detail planet while maintaining performance. Currently working on offloading the algorithm to the GPU with a compute shader. The marching cube runs on different tasks to prevent blocking the application.</p>
             <h2>Technical Details</h2>
             <p><strong>Technologies used:</strong> C#, Unity, HLSL, Compute Shaders</p>
             <h2>Key Features</h2>
             <ul>
-                <li>Feature 1</li>
-                <li>Feature 2</li>
-                <li>Feature 3</li>
+                <li>Implemented the Marching Cube algorithm with an octree for high detail and performance</li>
+                <li>Currently working on GPU offloading with compute shaders</li>
+                <li>Runs on different tasks to prevent blocking the application</li>
+                <li>Editor feature to preview the planet with saved settings</li>
             </ul>
             <h2>Challenges and Solutions</h2>
-            <p>Describe any significant challenges you faced during the project and how you overcame them.</p>
+            <p>Started from scratch with terrain meshing algorithms, experimented with voxel terrain, and pivoted to an octree for better performance and 3D possibilities.</p>
             <h2>Future Improvements</h2>
-            <p>Discuss any plans or ideas for future enhancements to the project.</p>
-            <div class="project-links">
-                <a href="#" class="btn">View Demo</a>
-                <a href="https://github.com/yourusername/planet-generation" target="_blank" rel="noopener noreferrer" class="btn">
-                    <i class="fab fa-github"></i> View on GitHub
-                </a>
-            </div>
+            <p>Plan to rewrite in Unreal for better code performance and more GPU utilization.</p>
+            <a href="https://github.com/Allan-Vonk/Planet-Generation/tree/main" target="_blank" rel="noopener noreferrer" class="btn">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
         </div>
     </main>
 
-    <script src="../scripts/main.js"></script>
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slides');
+
+        function changeSlide(n) {
+            slides[slideIndex].classList.remove('active');
+            slideIndex = (slideIndex + n + slides.length) % slides.length;
+            slides[slideIndex].classList.add('active');
+        }
+    </script>
 </body>
 </html>

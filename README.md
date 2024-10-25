@@ -24,10 +24,14 @@ You can view the live site at: [Allan Vonk's Portfolio](https://allan-vonk.githu
 
 I'm a passionate software developer based in Utrecht, currently studying Technical Computer Science at Hogeschool Utrecht. I have a diploma in Game Development from Grafisch Lyceum. I thrive on challenges and continuous learning, with a focus on game development and web technologies.
 
+## Roadmap
+
+Check out my project roadmap [here](roadmap.md) to see what I'm working on and what's coming next!
+
 ## Contact
 
 Feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/allan-vonk-07042022b/) or check out my other projects on [GitHub](https://github.com/Allan-Vonk).
 
 ---
 
-© 2023 Allan Vonk
+© 2024 Allan Vonk

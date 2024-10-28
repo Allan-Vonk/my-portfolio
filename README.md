@@ -20,9 +20,6 @@ You can view the live site at: [Allan Vonk's Portfolio](https://allan-vonk.githu
 - **Autonomous Greenhouse**: An autonomous system for monitoring environmental conditions.
 - **Zitu Island**: A collaborative puzzle game with unique room designs.
 
-## About Me
-
-I'm a passionate software developer based in Utrecht, currently studying Technical Computer Science at Hogeschool Utrecht. I have a diploma in Game Development from Grafisch Lyceum. I thrive on challenges and continuous learning, with a focus on game development and web technologies.
 
 ## Roadmap
 

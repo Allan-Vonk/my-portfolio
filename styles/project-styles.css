@@ -47,7 +47,7 @@
 }
 
 .project-content {
-    margin: 20px;
+    padding: 20px;
 }
 
 ul {
@@ -72,6 +72,20 @@ iframe {
     text-align: center;
 }
 
+.project-links .btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.project-links .btn:hover {
+    background-color: #555;
+}
+
 .btn-container {
     margin-top: 10px;
 }
@@ -81,4 +95,3 @@ iframe {
     height: 450px;
     border: none;
 }
-

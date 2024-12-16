@@ -6,6 +6,7 @@
     <title>Autonomous Greenhouse - Allan Vonk</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/project-styles.css">
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,30 +19,36 @@
 
     <main class="project-page">
         <h1>Autonomous Greenhouse</h1>
-        <img src="../images/Poster2.webp" alt="Autonomous Greenhouse" class="project-image">
         <div class="project-content">
             <p>An autonomous greenhouse system designed to operate with minimal user input. Features a dashboard for monitoring the system's status and environmental conditions.</p>
             <h2>Technical Details</h2>
             <p><strong>Technologies used:</strong> Raspberry Pi, Arduino, Node-RED, C++, UART, MQTT, SSH tunneling, Ultrasonic sensors</p>
             <h2>Key Features</h2>
             <ul>
-                <li>Feature 1</li>
-                <li>Feature 2</li>
-                <li>Feature 3</li>
+                <li>SSH tunneling to access the system on the network without port forwarding</li>
+                <li>UART and MQTT forwarding for access to sensor data, written in Python and automatically run on startup with services on Raspberry Pi</li>
+                <li>Own library for the ultrasonic distance sensor written in C++, enabling features like I2C address changing</li>
             </ul>
             <h2>Challenges and Solutions</h2>
-            <p>Describe any significant challenges you faced during the project and how you overcame them.</p>
+            <p>I faced difficulties in ensuring that the systemctl services ran reliably, which led me to explore Docker and Docker Compose in greater depth to find effective solutions.</p>
             <h2>Future Improvements</h2>
-            <p>Discuss any plans or ideas for future enhancements to the project.</p>
-            <div class="project-links">
-                <a href="#" class="btn">View Demo</a>
-                <a href="https://github.com/yourusername/autonomous-greenhouse" target="_blank" rel="noopener noreferrer" class="btn">
-                    <i class="fab fa-github"></i> View on GitHub
-                </a>
+            <p>If I were to enhance the project further, I would run all the services using Docker and Docker Compose instead of systemctl. Additionally, I would like to incorporate more system monitoring functionalities, such as cameras and air control systems.</p>
+
+        </div>
+        <div class="slideshow-container">
+            <div class="slides active">
+                <img src="../images/Poster2.webp" alt="Autonomous Greenhouse" class="project-image" width="80%" height="auto">
             </div>
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
         </div>
     </main>
 
+    <footer>
+        <p>&copy; 2024 Allan Vonk</p>
+    </footer>
+
+    <script src="../scripts/slideshow.js"></script>
     <script src="../scripts/main.js"></script>
 </body>
 </html>

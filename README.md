@@ -4,7 +4,7 @@ Welcome to my personal portfolio website, showcasing my projects and skills as a
 
 ## Live Site
 
-You can view the live site at: [Allan Vonk's Portfolio](https://allan-vonk.github.io/my-portfolio/my-portfolio/index.html)
+You can view the live site at: [Allan Vonk's Portfolio](https://AllanVonk.nl)
 
 ## Technologies Used
 
